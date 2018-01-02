@@ -15,7 +15,7 @@
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
     <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     
-            <style> #map_27ff49e335a44076b3b85a0f4aa0d406 {
+            <style> #map_f51cb8dcd9b74ee7b7bec27e58ff3a3a {
                 position : relative;
                 width : 100.0%;
                 height: 100.0%;
@@ -27,7 +27,7 @@
 </head>
 <body>    
     
-            <div class="folium-map" id="map_27ff49e335a44076b3b85a0f4aa0d406" ></div>
+            <div class="folium-map" id="map_f51cb8dcd9b74ee7b7bec27e58ff3a3a" ></div>
         
 </body>
 <script>    
@@ -37,8 +37,8 @@
                 var bounds = null;
             
 
-            var map_27ff49e335a44076b3b85a0f4aa0d406 = L.map(
-                                  'map_27ff49e335a44076b3b85a0f4aa0d406',
+            var map_f51cb8dcd9b74ee7b7bec27e58ff3a3a = L.map(
+                                  'map_f51cb8dcd9b74ee7b7bec27e58ff3a3a',
                                   {center: [36.174642,-115.091515],
                                   zoom: 4,
                                   maxBounds: bounds,
@@ -49,7 +49,7 @@
             
         
     
-            var tile_layer_6aa5e56e5d7646ca9a4ee6e5fa5dfb28 = L.tileLayer(
+            var tile_layer_d508c2c476e74c22a9bdad0202704d7c = L.tileLayer(
                 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 {
   "attribution": null,
@@ -59,6 +59,39 @@
   "noWrap": false,
   "subdomains": "abc"
 }
-                ).addTo(map_27ff49e335a44076b3b85a0f4aa0d406);
+                ).addTo(map_f51cb8dcd9b74ee7b7bec27e58ff3a3a);
+        
+    
+
+            var marker_f33bd5db0bc34e87b357f4fb193dd345 = L.marker(
+                [36.117941,-115.168246],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_f51cb8dcd9b74ee7b7bec27e58ff3a3a);
+            
+    
+
+                var icon_0b288659946b4e84b2906b0360af0171 = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_f33bd5db0bc34e87b357f4fb193dd345.setIcon(icon_0b288659946b4e84b2906b0360af0171);
+            
+    
+            var popup_997da2b9ca2649c989a0dd2b69e5c985 = L.popup({maxWidth: '300'});
+
+            
+                var html_310b38b423224855820ab131a3becbd3 = $('<div id="html_310b38b423224855820ab131a3becbd3" style="width: 100.0%; height: 100.0%;">High Roller</div>')[0];
+                popup_997da2b9ca2649c989a0dd2b69e5c985.setContent(html_310b38b423224855820ab131a3becbd3);
+            
+
+            marker_f33bd5db0bc34e87b357f4fb193dd345.bindPopup(popup_997da2b9ca2649c989a0dd2b69e5c985);
+
+            
         
 </script>
