@@ -7,18 +7,32 @@ our_map = folium.Map(location=[36.174642, -115.091515], zoom_start=4)
 # Create layer that can group several items which you can turn on and off simultaneously later on
 fg = folium.FeatureGroup(name='My Map')
 
-# TODO Add volcanoes as markers from Volcanoes.txt
+
+# Set color for marker depending on elevation of a volcano
+def get_color(elevation):
+    if elevation < 1000:
+        return 'green'
+    elif 1000 < elevation < 3000:
+        return 'orange'
+    else:
+        return 'red'
+
+
+# Get names and coordinates of USA's volcanoes
 csv_file = open('Volcanoes_USA.txt')
 csv_object = csv.reader(csv_file)
 csv_list = list(csv_object)
-csv_list = csv_list[1:]
-# Create list with name, longitude and latitude of each volcano
-volcanoes = [[x[2], float(x[8]), float(x[9])] for x in csv_list]
+csv_list = csv_list[1:]  # We do not need headers of csv file in our list
 
-# Add markers pointing to USA Volcanoes
+
+# Create list with name, elevation, longitude and latitude of each volcano
+volcanoes = [[x[2], float(x[5]), float(x[8]), float(x[9])] for x in csv_list]
+
+# Add markers pointing to these volcanoes
 for i in volcanoes:
-    i[0] = i[0].replace('\'', '') if '\'' in i[0] else i[0]  # Strip ' if occurs in string else break javascript
-    fg.add_child(folium.Marker(location=[i[1], i[2]], popup=i[0], icon=folium.Icon(color='green')))
+    # parse_html in order to not to break javascript because of ' inside strings
+    fg.add_child(folium.Marker(location=[i[2], i[3]], popup=folium.Popup(i[0] + ', ' + str(i[1]) + ' m',
+                               parse_html=True), icon=folium.Icon(color=(get_color(i[1])))))
 
 our_map.add_child(fg)
 
