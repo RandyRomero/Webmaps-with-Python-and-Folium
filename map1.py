@@ -31,8 +31,8 @@ volcanoes = [[x[2], float(x[5]), float(x[8]), float(x[9])] for x in csv_list]
 # Add markers pointing to these volcanoes
 for i in volcanoes:
     # parse_html in order to not to break javascript because of ' inside strings
-    fg.add_child(folium.Marker(location=[i[2], i[3]], popup=folium.Popup(i[0] + ', ' + str(i[1]) + ' m',
-                               parse_html=True), icon=folium.Icon(color=(get_color(i[1])))))
+    fg.add_child(folium.CircleMarker(location=[i[2], i[3]], popup=folium.Popup(i[0] + ', ' + str(i[1]) + ' m',
+                                     parse_html=True), color='gray', fill_color=get_color(i[1]), fill_opacity=1, fill=True))
 
 our_map.add_child(fg)
 
