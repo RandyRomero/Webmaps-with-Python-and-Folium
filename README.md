@@ -1,2 +1,2 @@
 # Webmaps-with-Python-and-Folium
-Project from Udemy course 'The Python Mega Course: Build 10 Real World Applications'
+Map1.html is actually the result of script map1.py. It is an interactive map of the world.  
