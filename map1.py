@@ -34,6 +34,11 @@ for i in volcanoes:
     fg.add_child(folium.Marker(location=[i[2], i[3]], popup=folium.Popup(i[0] + ', ' + str(i[1]) + ' m',
                                parse_html=True), icon=folium.Icon(color=(get_color(i[1])))))
 
+#  Make new layer to single out countries by color depending on a population
+fg.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').read(),
+                            style_function=lambda x: {'fillColor': 'green' if x['properties']['POP2005'] < 10000000 else
+                            'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}))
+
 our_map.add_child(fg)
 
 # Create actual interactive map
